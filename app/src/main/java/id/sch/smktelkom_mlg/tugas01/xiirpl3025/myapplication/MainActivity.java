@@ -15,7 +15,9 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama;
     EditText etKTP, etPhone;
     Button butOK;
+    RadioButton rbM, rbF;
     TextView tvHasil;
+
 
 
     @Override
@@ -26,8 +28,12 @@ public class MainActivity extends AppCompatActivity {
         etNama = (EditText) findViewById(R.id.editTextName);
         etKTP = (EditText) findViewById(R.id.editTextKTP);
         etPhone = (EditText) findViewById(R.id.editTextPhone);
+        rbM = (RadioButton) findViewById(R.id.radioButtonM);
+        rbF = (RadioButton) findViewById(R.id.radioButtonF);
         butOK = (Button) findViewById(R.id.buttonOK);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
+
+
 
         butOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,8 +42,20 @@ public class MainActivity extends AppCompatActivity {
                 String KTP = etKTP.getText().toString();
                 String phone = etPhone.getText().toString();
 
-                    tvHasil.setText("Your Name: " + nama + "." + "\n" + "KTP: " + KTP + "." + "\n" + "Phone number: " + phone + ".");
+                String hasil = null;
+                if (rbM.isChecked()) {
+                    hasil = rbM.getText().toString();
+                } else if (rbF.isChecked()) {
+                    hasil = rbF.getText().toString();
+                }
 
+
+
+                if (hasil == null) {
+                    tvHasil.setText("You have not fill the forms gender and Language");
+                } else {
+                    tvHasil.setText("Your Name: " + nama + "."+"\n"+"KTP: " + KTP + "."+"\n"+"Phone number: " + phone + "."+"\n"+"Gender: " + hasil+".");
+                }
 
             }
         });
