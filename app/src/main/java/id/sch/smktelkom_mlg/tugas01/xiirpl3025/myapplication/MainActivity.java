@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button butOK;
     RadioButton rbM, rbF;
     CheckBox cbID, cbEN, cbMA, cbOT;
+    Spinner spRe;
     TextView tvHasil;
 
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         cbEN = (CheckBox) findViewById(R.id.checkBoxEN);
         cbMA = (CheckBox) findViewById(R.id.checkBoxMA);
         cbOT = (CheckBox) findViewById(R.id.checkBoxOT);
+        spRe = (Spinner) findViewById(R.id.spinnerRe);
         butOK = (Button) findViewById(R.id.buttonOK);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 if (hasil == null  || hasil2 == null) {
                     tvHasil.setText("You have not fill the forms gender and Language");
                 } else {
-                    tvHasil.setText("Your Name: " + nama + "."+"\n"+"KTP: " + KTP + "."+"\n"+"Phone number: " + phone + "."+"\n"+"Gender: " + hasil+"."+hasil2+".");
+                    tvHasil.setText("Your Name: " + nama + "."+"\n"+"KTP: " + KTP + "."+"\n"+"Phone number: " + phone + "."+"\n"+"Gender: " + hasil+"."+hasil2+"."+"\n"+"Religion: "+spRe.getSelectedItem().toString());
                 }
 
             }
