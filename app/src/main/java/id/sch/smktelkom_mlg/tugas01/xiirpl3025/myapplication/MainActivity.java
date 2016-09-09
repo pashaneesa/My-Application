@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etKTP, etPhone;
     Button butOK;
     RadioButton rbM, rbF;
+    CheckBox cbID, cbEN, cbMA, cbOT;
     TextView tvHasil;
 
 
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
         etPhone = (EditText) findViewById(R.id.editTextPhone);
         rbM = (RadioButton) findViewById(R.id.radioButtonM);
         rbF = (RadioButton) findViewById(R.id.radioButtonF);
+        cbID = (CheckBox) findViewById(R.id.checkBoxID);
+        cbEN = (CheckBox) findViewById(R.id.checkBoxEN);
+        cbMA = (CheckBox) findViewById(R.id.checkBoxMA);
+        cbOT = (CheckBox) findViewById(R.id.checkBoxOT);
         butOK = (Button) findViewById(R.id.buttonOK);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
@@ -49,12 +54,17 @@ public class MainActivity extends AppCompatActivity {
                     hasil = rbF.getText().toString();
                 }
 
+                String hasil2 = "\nLanguage:";
+                int startlen = hasil2.length();
+                if(cbID.isChecked()) hasil2+=cbID.getText()+", ";
+                if(cbEN.isChecked()) hasil2+=cbEN.getText()+", ";
+                if(cbMA.isChecked()) hasil2+=cbMA.getText()+", ";
+                if(cbOT.isChecked()) hasil2+=cbOT.getText()+", ";
 
-
-                if (hasil == null) {
+                if (hasil == null  || hasil2 == null) {
                     tvHasil.setText("You have not fill the forms gender and Language");
                 } else {
-                    tvHasil.setText("Your Name: " + nama + "."+"\n"+"KTP: " + KTP + "."+"\n"+"Phone number: " + phone + "."+"\n"+"Gender: " + hasil+".");
+                    tvHasil.setText("Your Name: " + nama + "."+"\n"+"KTP: " + KTP + "."+"\n"+"Phone number: " + phone + "."+"\n"+"Gender: " + hasil+"."+hasil2+".");
                 }
 
             }
