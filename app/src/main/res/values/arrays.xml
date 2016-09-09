@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="religion">
+        <item>Islam</item>
+        <item>Kristen</item>
+        <item>Khalolik</item>
+        <item>Hindu</item>
+        <item>Budha</item>
+        <item>Konghuchu</item>
+    </string-array>
+
+</resources>
